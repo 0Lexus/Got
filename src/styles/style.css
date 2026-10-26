@@ -1,0 +1,476 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: #464444;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.content-login {
+    width: 100%;
+    max-width: 380px;
+    padding: 32px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+    text-align: center;
+}
+
+.login-logo {
+    width: 300px;
+    height: auto;
+}
+
+.login-title {
+    margin: 0 0 24px;
+    font-size: 1.5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+}
+
+.login-form label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-form input {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.login-form button {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 8px;
+    padding: 11px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #464444;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #302e2e;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+    
+    .content-login {
+        max-width: 100%;
+        padding: 24px 20px;
+    }
+}
+
+/* ============ DASHBOARD (TEMA CINZA) ============ */
+body.dashboard-body {
+    display: flex;
+    padding: 0;
+    background-color: #464444; /* Mesmo tom do login */
+    color: #f0f0f0;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+/* Sidebar (Cinza mais escuro) */
+.sidebar {
+    width: 240px;
+    background-color: #363434;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: transform 0.3s ease;
+    border-right: 1px solid #555;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #4a4848;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: auto;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    flex: 1;
+}
+
+.nav-item {
+    color: #ccc;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: #464444;
+    color: #fff;
+    border-left-color: #fff;
+}
+
+/* Main */
+.dashboard-main {
+    flex: 1;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Topbar (Cinza médio) */
+.topbar {
+    background-color: #525050;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #666;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-menu {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 22px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.topbar-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.btn-logout {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.btn-logout:hover {
+    background-color: #fff;
+    color: #464444;
+}
+
+/* Content */
+.content-dashboard {
+    padding: 24px;
+    flex: 1;
+}
+
+.dashboard-header {
+    margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 4px;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.dashboard-subtitle {
+    margin: 0;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Card Status (Cinza 1) */
+.card-status {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    background-color: #5a5858;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.status-text {
+    font-weight: 600;
+    color: #2ecc71;
+}
+
+.status-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #ddd;
+}
+
+.status-info strong {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Grid e Cards (Tons de cinza diferentes) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+    border: 1px solid #666;
+    color: #f0f0f0;
+}
+
+/* Tons de cinza para cada div */
+.card-noticias {
+    background-color: #636161;
+}
+
+.card-graficos {
+    background-color: #6e6c6c;
+}
+
+.card-resumo {
+    background-color: #6e6c6c;
+}
+
+.card-fontes {
+    background-color: #6e6c6c;
+}
+
+.card-title {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+    color: #fff;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-body {
+    min-height: 150px;
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.empty-state {
+    color: #aaa;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 12px;
+    color: #aaa;
+    margin-left: 240px;
+    background-color: #363434;
+    border-top: 1px solid #555;
+}
+
+/* ============ RESPONSIVO DASHBOARD ============ */
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .dashboard-main {
+        margin-left: 0;
+    }
+
+    .footer {
+        margin-left: 0;
+    }
+
+    .btn-menu {
+        display: block;
+    }
+
+    .topbar-user {
+        display: none;
+    }
+
+    .content-dashboard {
+        padding: 16px;
+    }
+
+    .card-status {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}
+
+/* ============ FORMULÁRIO DE CADASTRO (DENTRO DO DASHBOARD) ============ */
+.card-formulario {
+    max-width: 600px; /* Limita a largura para ficar elegante */
+    background-color: #636161; /* Mesmo tom do card de notícias */
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    color: #222;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #fff;
+    background-color: #fff;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #464444;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #302e2e;
+}
+
+/* Alertas */
+.alert-error {
+    background-color: #8b3a3a;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-left: 4px solid #ff6b6b;
+}
+
+.alert-success {
+    background-color: #2e7d32;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-left: 4px solid #69f0ae;
+}
